@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view setBackgroundColor:[UIColor grayColor]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -30,9 +30,12 @@
 }
 
 - (IBAction)showDDL:(id)sender {
-    ddl = [[dropdownList alloc] initWithData:@[@"a", @"b", @"c"]];
-    [ddl setFrame:CGRectMake(0, 150, self.view.frame.size.width, self.view.frame.size.height/2)];
-    [self.view addSubview:ddl];
+    if (!ddl) {
+        ddl = [[dropdownList alloc] initWithData:@[@"a", @"b", @"c"]];
+        [ddl setFrame:CGRectMake(10, 150, self.view.frame.size.width , self.view.frame.size.height/2)];
+        [self.view addSubview:ddl];
+    }
+    
     //[ddl setHeaderOffset:CGPointMake(30, 0)];
     [ddl show];
 }
